@@ -1,0 +1,12 @@
+server:
+  port: 6100
+spring:
+  application:
+    name: email-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+  main:
+    web-application-type: reactive
+
