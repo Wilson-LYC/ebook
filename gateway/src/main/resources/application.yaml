@@ -9,11 +9,11 @@ spring:
         server-addr: 127.0.0.1:8848
     gateway:
       routes:
-        - id: authority
+        - id: authority-service
           uri: lb://authority-service
           predicates:
             - Path=/auth/**
-        - id: email
+        - id: email-service
           uri: lb://email-service
           predicates:
             - Path=/email/**

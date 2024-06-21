@@ -1,16 +1,24 @@
 package com.ebook.email.contoller;
 
 import com.alibaba.fastjson2.JSONObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ebook.dto.ResponseDto;
+import com.ebook.email.service.EmailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.ebook.pojo.Email;
 
 @RestController
-@RequestMapping("/send")
+@RequestMapping("/email")
 public class EmailController {
-    @PostMapping("/captcha")
-    public JSONObject sendEmailCaptcha(){
-        return null;
+    @Autowired
+    EmailService emailService;
+    @GetMapping("/test")
+    public String test(){
+        return "success";
+    }
+    @PostMapping("/text")
+    public ResponseDto sendText(@RequestBody Email email){
+        return emailService.sendText(email);
     }
 }
+

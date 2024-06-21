@@ -1,8 +1,9 @@
 package com.ebook.email.service;
 
-import org.springframework.stereotype.Service;
+import com.ebook.dto.ResponseDto;
+import com.ebook.pojo.Email;
 
-@Service
-public class EmailService {
+public interface EmailService {
 
+    ResponseDto sendText(Email email);
 }
